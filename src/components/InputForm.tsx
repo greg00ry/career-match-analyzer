@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
 import { FileText, Briefcase, Loader2, Upload, Check, AlertCircle } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import PdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+// Configure PDF.js worker - local import
+pdfjsLib.GlobalWorkerOptions.workerSrc = PdfWorker;
 
 interface InputFormProps {
   onAnalyze: (jobDescription: string, resume: string) => void;
